@@ -1,0 +1,21 @@
+{
+  "name": "@graphify-labs/graphify-mcp",
+  "version": "0.1.0",
+  "displayName": "Graphify MCP",
+  "description": "Connect OpenClaw to Graphify's hosted code knowledge graph through MCP and browser OAuth.",
+  "license": "UNLICENSED",
+  "homepage": "https://graphify.com/mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Graphify-Labs/graphify-mcp.git",
+    "directory": "integrations/openclaw"
+  },
+  "files": [
+    ".claude-plugin/plugin.json",
+    ".mcp.json",
+    "openclaw.plugin.json",
+    "skills/",
+    "assets/",
+    "README.md"
+  ]
+}
