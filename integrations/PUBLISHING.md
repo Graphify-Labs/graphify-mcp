@@ -14,6 +14,8 @@ or main Graphify OSS change is required by these manifests.
   `9a091f1687d33d9b8c688fffcf3486cc1e362398`.
 - ClawHub package inspection reports `scanStatus: clean`, `isOfficial: false`,
   and verification tier `source-linked`.
+- Trusted publishing workflow path prepared in this repository:
+  `.github/workflows/package-publish.yml`.
 - Hermes catalog PR:
   <https://github.com/NousResearch/hermes-agent/pull/133973>.
 
@@ -73,6 +75,32 @@ Use the prepared `integrations/openclaw` directory, not the repository root.
 It contains a Graphify icon, MCP configuration, a usage skill, and both the
 ClawHub catalog metadata and a compatible Claude-format bundle marker.
 Do not add `openclaw.extensions` or a JavaScript entrypoint: this is a bundle.
+
+### Trusted publishing
+
+The repository includes `.github/workflows/package-publish.yml`, a manual
+GitHub Actions workflow that calls ClawHub's reusable package publish workflow.
+It defaults to `dry_run: true`; set `dry_run: false` only after bumping the
+OpenClaw package version and reviewing the changelog. Manual real publishes use
+GitHub OIDC trusted publishing and do not require a long-lived ClawHub token.
+
+The ClawHub trusted publisher config is:
+
+```sh
+npx --yes clawhub@0.23.3 package trusted-publisher set \
+  @graphify-labs/graphify-mcp \
+  --repository Graphify-Labs/graphify-mcp \
+  --workflow-filename package-publish.yml
+```
+
+Inspect or roll back with:
+
+```sh
+npx --yes clawhub@0.23.3 package trusted-publisher get \
+  @graphify-labs/graphify-mcp
+npx --yes clawhub@0.23.3 package trusted-publisher delete \
+  @graphify-labs/graphify-mcp
+```
 
 For future updates, merge the integration files into the public Graphify MCP repo
 and check out the merged commit with a clean working tree. With Node.js 22 or
