@@ -56,13 +56,13 @@ No password or access token belongs in this file. Let the client complete OAuth 
 
 ## Connect in other MCP clients
 
-Client-specific preparation packages and setup instructions:
+Client-specific packages and setup instructions:
 
-- [OpenClaw / ClawHub](integrations/openclaw/README.md) — MCP bundle and usage skill.
+- [OpenClaw / ClawHub](https://clawhub.ai/graphify-labs/plugins/graphify-mcp) — published MCP bundle and usage skill; see the [local bundle notes](integrations/openclaw/README.md).
 - [Nous Research Hermes Agent](integrations/hermes/README.md) — native OAuth configuration and an official-catalog contribution candidate.
 
 These are connection packages for the hosted service. Their inclusion here does
-not mean either platform has approved or published a listing.
+not mean every platform has approved or shipped a catalog listing.
 
 For clients with a remote MCP setup form, enter `https://api.graphify.com/mcp` as the server URL and complete browser OAuth. Configuration formats differ by client.
 
