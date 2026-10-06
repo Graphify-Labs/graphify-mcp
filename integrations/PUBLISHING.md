@@ -1,23 +1,51 @@
 # OpenClaw and Hermes publishing handoff
 
-Prepared on 6 October 2026. These packages connect to the existing hosted
-Graphify MCP service. No backend, OAuth, or main Graphify OSS change is required
-by these manifests. Neither listing has been submitted by this preparation.
+Prepared on 6 October 2026 and updated after the first publication pass. These
+packages connect to the existing hosted Graphify MCP service. No backend, OAuth,
+or main Graphify OSS change is required by these manifests.
 
-## Remaining decisions
+## Current status
 
-1. Confirm a Graphify-owned ClawHub publisher handle and grant the person
-   publishing access to that owner. `@graphify-labs/graphify-mcp` is provisional;
-   the package scope must match the actual owner handle. A founder's personal
-   account is not inherently required when your account has the needed access.
-2. Approve a license for these small public manifests, documentation, skill, and
-   icon. The OpenClaw package currently says `UNLICENSED`; it is not licensed as
-   open source. A permissive license for the integration files would not expose
-   or relicense the private hosted backend. The Hermes upstream contribution is
-   governed by that project's MIT contribution terms. Keep Graphify trademark
-   and logo rights distinct if adopting an open-source license.
-3. Complete the two authenticated client smoke tests below. Package validation
-   and public OAuth metadata checks are not proof of successful sign-in.
+- OpenClaw package published on ClawHub as
+  `@graphify-labs/graphify-mcp`.
+- Latest OpenClaw package version: `0.1.1`.
+- Latest ClawHub release id: `rd7eyg2841f218ze3rcprm0by98fswzx`.
+- Source commit for `0.1.1`:
+  `9a091f1687d33d9b8c688fffcf3486cc1e362398`.
+- ClawHub package inspection reports `scanStatus: clean`, `isOfficial: false`,
+  and verification tier `source-linked`.
+- Hermes catalog PR:
+  <https://github.com/NousResearch/hermes-agent/pull/133973>.
+
+## Remaining external decisions
+
+1. Decide whether to request ClawHub official or verified treatment from the
+   OpenClaw maintainers. The package currently remains a community package.
+2. Wait for Nous Research review and acceptance of the Hermes catalog PR.
+3. Record a post-publish OpenClaw install smoke test from the public package if
+   the team wants evidence attached to a badge or trust review request. Package
+   validation and public OAuth metadata checks are not proof of successful
+   sign-in.
+
+## ClawHub official or verified status
+
+Do not add `official`, `verified`, `trusted`, `approved`, or similar topics to
+the package. ClawHub rejects those as reserved metadata. The current public
+trust state is source-linked, community, and cleanly scanned.
+
+For an official or verified badge, prepare a maintainer-facing request with:
+
+- ClawHub listing URL and package identity.
+- Graphify Labs owner identity and proof that `graphify-labs` is controlled by
+  the company.
+- Source repo, source commit, and `integrations/openclaw` source path.
+- Clean validation and scan results.
+- OAuth, credential-handling, network-egress, and side-effect summary.
+- Authenticated smoke-test evidence from OpenClaw and Hermes.
+- Support and incident contact.
+
+OpenClaw docs and ClawHub repository notes indicate that official or badge state
+is admin or maintainer controlled, not something a publisher can self-assert.
 
 ## Smoke test before either submission
 
@@ -38,16 +66,16 @@ For each client, follow its README, then record:
 Do not mark a check passed if the model cannot call the tools, the repository has
 not finished indexing, or only `tools/list` succeeded.
 
-## OpenClaw: publish the bundle on ClawHub
+## OpenClaw: publish or update the bundle on ClawHub
 
 Use the prepared `integrations/openclaw` directory, not the repository root.
 It contains a Graphify icon, MCP configuration, a usage skill, and both the
 ClawHub catalog metadata and a compatible Claude-format bundle marker.
 Do not add `openclaw.extensions` or a JavaScript entrypoint: this is a bundle.
 
-After review, merge the integration files into the public Graphify MCP repo.
-Check out the merged commit with a clean working tree. Confirm the publisher
-scope and license first. With Node.js 22 or newer for ClawHub:
+For future updates, merge the integration files into the public Graphify MCP repo
+and check out the merged commit with a clean working tree. With Node.js 22 or
+newer for ClawHub:
 
 ```sh
 npx --yes clawhub@0.23.3 login
@@ -62,24 +90,23 @@ npx --yes clawhub@0.23.3 package publish ./integrations/openclaw \
   --source-path integrations/openclaw \
   --host-targets openclaw \
   --topics mcp,code-search,knowledge-graph \
-  --changelog "Initial Graphify hosted MCP bundle with browser OAuth setup and code investigation guidance." \
+  --changelog "Describe the package change here." \
   --dry-run
 ```
 
-Replace `graphify-labs` and the package scope together if the owner handle differs.
 Review the preview. Then repeat the publish command with `--wait` in place of
 `--dry-run`. Publishing is an external release; security checks can hold or reject
 it. A successful upload is not the same as a public listing.
 
-Once public, install using the exact published package identity:
+Install using the exact published package identity:
 
 ```sh
 openclaw plugins install clawhub:@graphify-labs/graphify-mcp
 ```
 
 Follow the bundle README to complete Graphify OAuth. Verify discovery and a real
-repository query from the published package, then add its live listing URL to
-the root README. Do not advertise a live install until publication is confirmed.
+repository query from the published package. Do not treat the browser OAuth
+metadata check or `tools/list` alone as sufficient proof.
 
 ## Hermes: request official MCP catalog inclusion
 
