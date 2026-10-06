@@ -56,6 +56,14 @@ No password or access token belongs in this file. Let the client complete OAuth 
 
 ## Connect in other MCP clients
 
+Client-specific preparation packages and setup instructions:
+
+- [OpenClaw / ClawHub](integrations/openclaw/README.md) — MCP bundle and usage skill.
+- [Nous Research Hermes Agent](integrations/hermes/README.md) — native OAuth configuration and an official-catalog contribution candidate.
+
+These are connection packages for the hosted service. Their inclusion here does
+not mean either platform has approved or published a listing.
+
 For clients with a remote MCP setup form, enter `https://api.graphify.com/mcp` as the server URL and complete browser OAuth. Configuration formats differ by client.
 
 Clients that accept an `mcpServers` configuration may use:

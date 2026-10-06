@@ -1,0 +1,5 @@
+# Merge this entry into your existing config; do not replace other MCP servers.
+mcp_servers:
+  graphify:
+    url: https://api.graphify.com/mcp
+    auth: oauth
