@@ -17,13 +17,13 @@ or main Graphify OSS change is required by these manifests.
 - Hermes catalog PR:
   <https://github.com/NousResearch/hermes-agent/pull/133973>.
 
-## Remaining external decisions
+## Remaining Graphify follow-up actions
 
 1. Decide whether to request ClawHub official or verified treatment from the
    OpenClaw maintainers. The package currently remains a community package.
 2. Wait for Nous Research review and acceptance of the Hermes catalog PR.
 3. Record a post-publish OpenClaw install smoke test from the public package if
-   the team wants evidence attached to a badge or trust review request. Package
+   Graphify wants evidence attached to a badge or trust review request. Package
    validation and public OAuth metadata checks are not proof of successful
    sign-in.
 
@@ -33,7 +33,8 @@ Do not add `official`, `verified`, `trusted`, `approved`, or similar topics to
 the package. ClawHub rejects those as reserved metadata. The current public
 trust state is source-linked, community, and cleanly scanned.
 
-For an official or verified badge, prepare a maintainer-facing request with:
+For an official or verified badge, Graphify can prepare a maintainer-facing
+request with:
 
 - ClawHub listing URL and package identity.
 - Graphify Labs owner identity and proof that `graphify-labs` is controlled by
@@ -95,8 +96,8 @@ npx --yes clawhub@0.23.3 package publish ./integrations/openclaw \
 ```
 
 Review the preview. Then repeat the publish command with `--wait` in place of
-`--dry-run`. Publishing is an external release; security checks can hold or reject
-it. A successful upload is not the same as a public listing.
+`--dry-run`. Publishing creates a public ClawHub release; security checks can
+hold or reject it. A successful upload is not the same as a public listing.
 
 Install using the exact published package identity:
 
