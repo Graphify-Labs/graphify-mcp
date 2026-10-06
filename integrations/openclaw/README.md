@@ -6,8 +6,10 @@ change impact, identify linked tests, and retain repository knowledge.
 
 This is a declarative MCP bundle with a usage skill. It contains no server
 implementation, runtime JavaScript, installer hooks, or bundled credentials.
-ClawHub publication is pending; the package name is provisional until Graphify's
-publisher handle is confirmed.
+It is published on ClawHub as `@graphify-labs/graphify-mcp` by Graphify Labs.
+
+This is a Graphify-published community package. It is not represented as an
+OpenClaw-official or OpenClaw-approved package.
 
 ## Requirements
 
@@ -17,12 +19,12 @@ publisher handle is confirmed.
 - An enabled model and tool access in OpenClaw. Graphify service access and model
   access are separate.
 
-## Install from this repository
+## Install from ClawHub
 
-From the repository root:
+Install the published package:
 
 ```sh
-openclaw plugins install ./integrations/openclaw
+openclaw plugins install clawhub:@graphify-labs/graphify-mcp
 openclaw plugins inspect graphify-mcp
 ```
 
@@ -33,6 +35,15 @@ definition also makes the server available to OpenClaw's MCP management commands
 openclaw mcp set graphify '{"url":"https://api.graphify.com/mcp","transport":"streamable-http","auth":"oauth"}'
 openclaw mcp login graphify
 openclaw mcp doctor graphify --probe
+```
+
+## Install from this repository
+
+From the repository root:
+
+```sh
+openclaw plugins install ./integrations/openclaw
+openclaw plugins inspect graphify-mcp
 ```
 
 If a server named `graphify` already exists, inspect it first with
@@ -87,5 +98,6 @@ and retry login. Do not share tokens or private source in public issue reports.
 [Privacy policy](https://graphify.com/privacy) ·
 [Terms of service](https://graphify.com/terms) · support@graphify.com
 
-The package currently reserves its rights (`UNLICENSED`) pending Graphify's
-distribution-license decision. It is not represented as OpenClaw-approved.
+The integration bundle files are licensed under the MIT License. Graphify names,
+logos, trademarks, service marks, hosted service code, hosted infrastructure,
+and private backend implementation are not relicensed by this package.

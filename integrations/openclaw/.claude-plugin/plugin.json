@@ -1,6 +1,6 @@
 {
   "name": "graphify-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect to Graphify's hosted code knowledge graph using browser OAuth.",
   "author": { "name": "Graphify Labs" },
   "homepage": "https://graphify.com/mcp",

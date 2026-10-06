@@ -1,7 +1,7 @@
 {
   "id": "graphify-mcp",
   "name": "Graphify MCP",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Search indexed repositories, inspect code relationships, assess static change impact, and manage repository knowledge in Graphify.",
   "categories": ["developer-tools"],
   "configSchema": {
