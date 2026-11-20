@@ -10,6 +10,11 @@ This repository contains public connection documentation for the **Graphify host
 - **Official MCP Registry identity:** `io.github.Graphify-Labs/graphify`
 - **Documentation:** [graphify.com/mcp](https://graphify.com/mcp)
 
+## Install in ChatGPT or Codex
+
+- **ChatGPT, and Codex in the ChatGPT desktop app:** install [Graphify from OpenAI's plugin directory](https://chatgpt.com/plugins/plugin_asdk_app_6abe89f7f5d88191b9422522bb8562a4), then sign in to Graphify.
+- **Codex CLI:** run `/plugins`, search for **Graphify**, install it, and start a new session. Setup guide: [docs.graphify.com/integrations/codex](https://docs.graphify.com/integrations/codex)
+
 ## What you can do
 
 | Workflow | Example request |
